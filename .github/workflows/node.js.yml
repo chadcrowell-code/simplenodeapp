@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [12, 14]
+        node: [12]
     steps:
      - name: my first app
        env: 
@@ -16,3 +16,6 @@ jobs:
          MIDDLE_NAME: Garcia
          LAST_NAME: Lagunas
        run: echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
+     - name: my second job 
+       if: success()
+       run: echo "The previous job was successfully"
