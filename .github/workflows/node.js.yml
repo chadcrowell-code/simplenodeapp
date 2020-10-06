@@ -24,3 +24,9 @@ jobs:
        with:
          node-version: 12
          registry-url: https://npm.pkg.github.com/
+     - name: my  fourth release 
+       uses: actions/first-interaction@master
+       with:
+         repo-token: ${{ secrets_GITHUB_TOKEN }}
+         issue-message: "this message will be dislayed on user firts issue"
+         pr-message: "This message will be dispalyed on first pr"
