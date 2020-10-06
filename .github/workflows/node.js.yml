@@ -27,6 +27,6 @@ jobs:
      - name: my  fourth release 
        uses: actions/first-interaction@master
        with:
-         repo-token: ${{ secrets_GITHUB_TOKEN }}
+         repo-token: ${{ secrets.GITHUB_TOKEN }}
          issue-message: "this message will be dislayed on user firts issue"
          pr-message: "This message will be dispalyed on first pr"
