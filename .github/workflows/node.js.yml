@@ -2,7 +2,7 @@ name: build
 on:
   push:
     paths: 
-	    - '**.js'
+      - '**.js'
 jobs:
   build:
     name: my job
