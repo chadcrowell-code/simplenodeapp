@@ -9,17 +9,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
-        node: [10, 12, 14]
-        exclude:
-          - os: macos-latest
-            node: 10
+        os: [ubuntu-latest]
+        node: [12, 14]
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }} 
-      - run: npm ci 
-      - run: npm run build --if-present 
-      ## updated spaces
+     - name: my first app
+       env: 
+         MY_VAR: Hi there! my names is
+         FIRST_NAME: Quetzalcoatl
+         MIDDLE_NAME: Garcia
+         LAST_NAME: Lagunas
+       run: echo $MY_VAR $FIRTS_NAME $MIDDLE_NAME $LAST_NAME
