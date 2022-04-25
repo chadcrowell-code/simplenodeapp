@@ -1,11 +1,14 @@
 # steps.yml
 name: steps
-on:
-  push:
-    branches: [ master ]
+on: push
 jobs:
-  run:
-    runs-on: ubuntu-latest
+  build:
+    name: my job
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12]
     steps:
     - name: My first step
       env:
@@ -23,15 +26,7 @@ jobs:
       with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/ # if your publishing your package to npm or github package repo
-    # Reference a specific commit
-    - uses: actions/setup-node@0e2f9cd
-    # Reference the major version of a release
-    - uses: actions/setup-node@v1
-    # Reference a minor version of a release
-    - uses: actions/setup-node@v1.2
-    # Reference a branch
-    - uses: actions/setup-node@master
-    - name: my fifth step
+    - name: my fourth step
       uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
